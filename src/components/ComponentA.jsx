@@ -1,7 +1,9 @@
+import useData from "../contexts/useData";
 import ComponentB from "./ComponentB";
 
-const ComponentA = (props) => {
-  const { data, setData } = props;
+const ComponentA = () => {
+  const { data } = useData();
+  console.log("Data in Component A Re-rendered");
 
   return (
     <div>
@@ -9,9 +11,9 @@ const ComponentA = (props) => {
       <div>
         <h2>{data?.name}</h2>
         <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-          {data?.orders?.map((order, orderIndex) => {
+          {data?.orders?.map((order, orderId) => {
             return (
-              <div key={orderIndex}>
+              <div key={orderId}>
                 <p>Order ID: {order.orderId}</p>
                 <p>Product: {order.product}</p>
                 <p style={{ backgroundColor: "red" }}>
@@ -23,7 +25,7 @@ const ComponentA = (props) => {
           })}
         </div>
       </div>
-      <ComponentB data={data} setData={setData} />
+      <ComponentB />
     </div>
   );
 };

@@ -1,7 +1,9 @@
+import useData from "../contexts/useData";
 import ComponentC from "./ComponentC";
 
-const ComponentB = (props) => {
-  const { data, setData } = props;
+const ComponentB = () => {
+  const { data, setData } = useData();
+  console.log("Data in Component B Re-rendered");
 
   return (
     <div>

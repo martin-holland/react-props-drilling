@@ -1,9 +1,13 @@
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+// import useData from "../contexts/useData";
+import { DataContext } from "../contexts/DataContext";
 
-const ComponentC = (props) => {
-  const { data, setData } = props;
+const ComponentC = () => {
+  const { data, setData, numbers } = useContext(DataContext);
+
+  console.log("Data in Component C  Re-rendered");
 
   const [orders, setOrders] = useState(data?.orders);
 
@@ -38,6 +42,8 @@ const ComponentC = (props) => {
       <h1>Component C</h1>
       <div>
         <h2>{data?.name}</h2>
+        <div>Numbers: {numbers}</div>
+
         <div style={{ display: "flex", justifyContent: "space-evenly" }}>
           {orders?.map((order, orderIndex) => (
             <div
