@@ -1,4 +1,5 @@
 import axios from "axios";
+import {url} from "../api/api"
 
 // Get data using axios
 

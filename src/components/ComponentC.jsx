@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const ComponentC = (props) => {
-  const { data } = props;
+  const { data, setData } = props;
   const [orders, setOrders] = useState(data.orders);
 
   useEffect(() => {
@@ -21,8 +21,9 @@ const ComponentC = (props) => {
       const response = await axios.put(`http://localhost:3000/data`, {
         ...data,
         orders,
-      });
-      console.log(response.data);
+      }
+      )
+      setData(response.data)
     } catch (error) {
       console.error(error);
     }
