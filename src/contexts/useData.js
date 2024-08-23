@@ -1,5 +1,5 @@
-const { useContext } = require("react");
-const { DataContext } = require("./DataContext");
+import { useContext } from "react";
+import { DataContext } from "./DataContext";
 
 const useData = () => {
   return useContext(DataContext);
