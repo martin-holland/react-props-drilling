@@ -1,9 +1,10 @@
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import useData from "../contexts/useData";
 
-const ComponentC = (props) => {
-  const { data, setData } = props;
+const ComponentC = () => {
+  const { data, setData } = useData();
   const [orders, setOrders] = useState(data.orders);
 
   useEffect(() => {
